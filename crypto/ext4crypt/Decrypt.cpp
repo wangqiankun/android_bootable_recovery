@@ -162,6 +162,9 @@ int gatekeeper_device_initialize(gatekeeper_device_t **dev) {
 #endif //ifndef HAVE_GATEKEEPER1
 
 bool Decrypt_DE() {
+    if(true){
+        return false;
+    }
 	if (!e4crypt_initialize_global_de()) { // this deals with the overarching device encryption
 		printf("e4crypt_initialize_global_de returned fail\n");
 		return false;

@@ -1533,13 +1533,19 @@ int GUIAction::adbsideload(std::string arg __unused)
 		} else {
 			int wipe_cache = 0;
 			int wipe_dalvik = 0;
+			int wipe_cache_and_data = 0;
 			DataManager::GetValue("tw_wipe_dalvik", wipe_dalvik);
+			DataManager::GetValue("tw_wipe_cache_and_data", wipe_cache_and_data);
 
 			if (TWinstall_zip(FUSE_SIDELOAD_HOST_PATHNAME, &wipe_cache) == 0) {
 				if (wipe_cache || DataManager::GetIntValue("tw_wipe_cache"))
 					PartitionManager.Wipe_By_Path("/cache");
 				if (wipe_dalvik)
 					PartitionManager.Wipe_Dalvik_Cache();
+				if (wipe_cache_and_data){
+                    PartitionManager.Wipe_By_Path("/cache");
+                    PartitionManager.Format_Data();
+                }
 			} else {
 				ret = 1; // failure
 			}

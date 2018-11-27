@@ -743,6 +743,7 @@ void DataManager::SetDefaultValues()
 	mData.SetValue(TW_ACTION_BUSY, "0");
 	mData.SetValue("tw_wipe_cache", "0");
 	mData.SetValue("tw_wipe_dalvik", "0");
+	mData.SetValue("tw_wipe_cache_and_data","1");
 	mData.SetValue(TW_ZIP_INDEX, "0");
 	mData.SetValue(TW_ZIP_QUEUE_COUNT, "0");
 	mData.SetValue(TW_FILENAME, "/sdcard");
@@ -767,7 +768,7 @@ void DataManager::SetDefaultValues()
 	mConst.SetValue("tw_screen_timeout_secs", "0");
 	mConst.SetValue("tw_no_screen_timeout", "1");
 #else
-	mPersist.SetValue("tw_screen_timeout_secs", "60");
+	mPersist.SetValue("tw_screen_timeout_secs", "600");
 	mPersist.SetValue("tw_no_screen_timeout", "0");
 #endif
 	mData.SetValue("tw_gui_done", "0");

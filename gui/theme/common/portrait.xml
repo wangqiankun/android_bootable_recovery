@@ -870,10 +870,19 @@
 
 			<button style="main_button_half_height">
 				<placement x="%center_x%" y="%row21a_y%"/>
-				<text>{@reboot_system_btn=Reboot System}</text>
+				<text>{@rb_poweroff_btn=Power Off}</text>
 				<actions>
-					<action function="set">tw_back=main2</action>
-					<action function="page">reboot_system_routine</action>
+					<action function="set">tw_back=reboot</action>
+					<action function="set">tw_action=reboot</action>
+					<action function="set">tw_action_param=poweroff</action>
+					<action function="set">tw_reboot_param=poweroff</action>
+					<action function="set">tw_has_action2=0</action>
+					<action function="set">tw_text1={@no_os1=No OS Installed! Are you}</action>
+					<action function="set">tw_text2={@no_ospo=sure you wish to power off?}</action>
+					<action function="set">tw_action_text1={@turning_off=Turning Off...}</action>
+					<action function="set">tw_complete_text1={@turning_off=Turning Off...}</action>
+					<action function="set">tw_slider_text={@swipe_power_off=Swipe to Power Off}</action>
+					<action function="page">rebootcheck</action>
 				</actions>
 			</button>
 
@@ -4628,6 +4637,12 @@
 				<placement x="%indent%" y="%row3a_y%"/>
 				<text>{@sideload_wipe_cache_chk=Wipe Cache}</text>
 				<data variable="tw_wipe_cache"/>
+			</checkbox>
+
+			<checkbox>
+				<placement x="%indent%" y="%row5_y%"/>
+				<text>Wipe Cache And Format Data</text>
+				<data variable="tw_wipe_cache_and_data"/>
 			</checkbox>
 
 			<slider>
